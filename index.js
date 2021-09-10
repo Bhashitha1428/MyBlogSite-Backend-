@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
 const authRoute = require('./routes/auth')
+const userRoute=require('./routes/users')
 
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URL, {
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 app.use(express.json())
 
  app.use('/api/auth', authRoute)
+ app.use('/api/user/update',userRoute)
 
 
 app.listen(5000, () => {
